@@ -1,52 +1,126 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
     margin: 0;
-    padding: 0;
+    font-family: Inter, Arial, sans-serif;
+    background: linear-gradient(135deg, #eef4ff, #f8fbff);
+    color: #1e293b;
 }
 
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    background: #fff;
-    padding: 24px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 20px 48px;
 }
 
-h1 {
-    margin-top: 0;
+.hero {
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    margin: 0 0 8px;
+    font-size: 2rem;
+}
+
+.hero p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.6;
+}
+
+code {
+    background: #e2e8f0;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 20px;
+}
+
+.panel {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    padding: 20px;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.panel-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
 }
 
 textarea {
     width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    margin: 16px 0;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    min-height: 320px;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    padding: 14px;
+    font-size: 15px;
+    line-height: 1.6;
     resize: vertical;
+    outline: none;
 }
 
-button {
-    background: #0066cc;
-    color: white;
+textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
     border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 14px;
     cursor: pointer;
+    transition: 0.2s ease;
 }
 
-button:hover {
-    background: #0052a3;
+.primary-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+}
+
+.secondary-btn {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.secondary-btn:hover {
+    background: #cbd5e1;
 }
 
 .error {
     margin-top: 16px;
-    padding: 12px;
-    background: #ffe5e5;
-    color: #b00020;
-    border-radius: 8px;
+    padding: 12px 14px;
+    background: #fee2e2;
+    color: #b91c1c;
+    border-radius: 10px;
+    border: 1px solid #fecaca;
 }
 
 .hidden {
@@ -54,18 +128,106 @@ button:hover {
 }
 
 .result {
-    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
+.empty-state {
+    border: 2px dashed #cbd5e1;
+    border-radius: 14px;
+    padding: 32px 18px;
+    text-align: center;
+    color: #64748b;
+    background: #f8fafc;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.summary-card,
 .card {
-    background: #f9fafc;
+    background: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-radius: 10px;
+    border-radius: 14px;
     padding: 16px;
-    margin-bottom: 16px;
+}
+
+.summary-card h3,
+.card h3,
+.card h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.stat {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.label {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
 }
 
 pre {
+    margin: 0;
     white-space: pre-wrap;
     word-break: break-word;
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 14px;
+    border-radius: 12px;
+    overflow-x: auto;
+    font-size: 13px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.badge.tree {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge.cycle {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.hierarchy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-grid,
+    .meta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page {
+        padding: 20px 14px 32px;
+    }
 }
